@@ -14,6 +14,7 @@
 		B876CA511CC6524800139424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B876CA501CC6524800139424 /* Assets.xcassets */; };
 		B876CA541CC6524800139424 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B876CA521CC6524800139424 /* LaunchScreen.storyboard */; };
 		B876CA5F1CC6524800139424 /* ConsoleButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B876CA5E1CC6524800139424 /* ConsoleButtonTests.swift */; };
+		B876CA6A1CC6544C00139424 /* ConsoleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B876CA691CC6544C00139424 /* ConsoleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		B876CA5A1CC6524800139424 /* ConsoleButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConsoleButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B876CA5E1CC6524800139424 /* ConsoleButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleButtonTests.swift; sourceTree = "<group>"; };
 		B876CA601CC6524800139424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B876CA691CC6544C00139424 /* ConsoleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				B876CA461CC6524800139424 /* AppDelegate.swift */,
 				B876CA481CC6524800139424 /* ViewController.swift */,
+				B876CA691CC6544C00139424 /* ConsoleButton.swift */,
 				B876CA4A1CC6524800139424 /* Main.storyboard */,
 				B876CA501CC6524800139424 /* Assets.xcassets */,
 				B876CA521CC6524800139424 /* LaunchScreen.storyboard */,
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B876CA4F1CC6524800139424 /* ConsoleButton.xcdatamodeld in Sources */,
+				B876CA6A1CC6544C00139424 /* ConsoleButton.swift in Sources */,
 				B876CA491CC6524800139424 /* ViewController.swift in Sources */,
 				B876CA471CC6524800139424 /* AppDelegate.swift in Sources */,
 			);
@@ -335,6 +339,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.artursderkintis.ConsoleButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -346,6 +351,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.artursderkintis.ConsoleButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -392,6 +398,7 @@
 				B876CA651CC6524800139424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B876CA661CC6524800139424 /* Build configuration list for PBXNativeTarget "ConsoleButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +407,7 @@
 				B876CA681CC6524800139424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
