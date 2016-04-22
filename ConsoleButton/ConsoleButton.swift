@@ -12,11 +12,27 @@ struct Appearance {
     var title   : String?
     var imageNamed : String?
     var color   : UIColor = UIColor.blueColor()
-    func image() -> UIImage?{
-        if let imageNamed = self.imageNamed{
+    var image : UIImage?
+    
+    func getImage() -> UIImage?{
+        if let image = image{
+            return image
+        }else if let imageNamed = self.imageNamed{
             return UIImage(named: imageNamed)
         }
         return nil
+    }
+    init(imageNamed: String, color : UIColor){
+        self.imageNamed = imageNamed
+        self.color = color
+    }
+    init(image : UIImage, color : UIColor){
+        self.image = image
+        self.color = color
+    }
+    init(title : String, color : UIColor){
+        self.title = title
+        self.color = color
     }
 }
 
@@ -74,6 +90,7 @@ class ConsoleButton: UIControl {
             layer.addSublayer(newLayer)
             
             let button = UIButton(type: .Custom)
+            
             if let title = appearance.title{
                 button.setTitle(title, forState: .Normal)
                 button.setTitleColor(.whiteColor(), forState: .Normal)
@@ -82,7 +99,7 @@ class ConsoleButton: UIControl {
                 button.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 1)
                 button.titleLabel?.layer.shadowRadius = 1
                 button.titleLabel?.layer.shadowOpacity = 0.4
-            }else if let icon = appearance.image(){
+            }else if let icon = appearance.getImage(){
                 button.setImage(icon, forState: .Normal)
                 button.setImage(icon.imageWithColor(UIColor.lightGrayColor()), forState: .Selected)
             }
@@ -112,7 +129,7 @@ class ConsoleButton: UIControl {
                     self.sendActionsForControlEvents(.TouchDown)
                     buttons[idx].highlighted = true
                     
-                    if selectable{
+                    if selectable {
                         self.sendActionsForControlEvents(.ValueChanged)
                         if let layer = touchedLayer {
                             touchUp(layer)
@@ -157,6 +174,7 @@ class ConsoleButton: UIControl {
 extension ConsoleButton{
     
     func touchDown(layer : CAShapeLayer){
+        
         layer.removeAllAnimations()
         let faded = CABasicAnimation(keyPath: "strokeColor")
         originalColor = layer.strokeColor ?? UIColor.blueColor().CGColor
@@ -166,10 +184,12 @@ extension ConsoleButton{
         faded.autoreverses = false
         faded.removedOnCompletion = false
         faded.fillMode = kCAFillModeForwards
-        layer.addAnimation(faded, forKey: "opacity")
+        layer.addAnimation(faded, forKey: "strokeColor")
+        
     }
     
     func touchUp(layer : CAShapeLayer){
+        
         layer.removeAllAnimations()
         let faded = CABasicAnimation(keyPath: "strokeColor")
         faded.fromValue = layer.strokeColor
@@ -178,7 +198,8 @@ extension ConsoleButton{
         faded.autoreverses = false
         faded.removedOnCompletion = false
         faded.fillMode = kCAFillModeForwards
-        layer.addAnimation(faded, forKey: "opacity")
+        layer.addAnimation(faded, forKey: "strokeColor")
+        
     }
     
 }
